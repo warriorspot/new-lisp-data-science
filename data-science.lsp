@@ -1,3 +1,8 @@
+(define (read-csv filename)
+    (let ((file (open filename "read")) (out (list)))
+        (while (read-line file)	
+            (extend out (list (parse (current-line) ","))))))
+
 (define (load-matrix filename header)
     (let (X (list) line (list) fileno (open filename "r")) 
         (if (= header 1) (read-line fileno))
